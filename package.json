@@ -1,7 +1,7 @@
 {
   "name": "dimitrk.exclude-indexing-filetree",
   "title": "Brackets Exclude Indexing FileTree",
-  "version": "1.0.0",
+  "version": "1.0.0-beta",
   "description": "Excludes folders from the Brackets project parser to avoid performance problems and seach indexing files limitation. Tries to exclude also folders included inside project's .gitignore file (if any).",
   "keywords": [
     "brackets-extension",
