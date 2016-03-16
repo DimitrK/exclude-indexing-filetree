@@ -147,6 +147,9 @@ define(function (require, exports, module) {
 
       var relativePath = path.slice(projectPath.length),
         excluded = _.any(excludeList, function (re) {
+          if (re.test === undefined) {
+            return toRegexp(re).test(relativePath);
+          }
           return re.test(relativePath);
         });
 
