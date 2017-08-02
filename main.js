@@ -75,17 +75,16 @@ define(function (require, exports, module) {
     };
 
     ignoreLines = gitIgnore.split(newLineRegex).map(function (v) {
-				/**
-				 * Remove preceding slash so patterns match the relative paths being provided in setFileSystemIndexFilter().
-				 * Escape "." characters to match GIT Ignore syntax.
-				 * Replace "*" with a pattern check for any characters other than directory separators.
-				 * Wrap pattern in begin-/end-string characters or directory separators.
-				 */
-				v = v.replace(/^\//g, '').replace(/\./g, '\\.').replace(/\*/g, '[^\\/\\\\]*');
-				
-				return '(^|[\\\/])' + v + '($|[\\\/])';
-			}
-		);
+      /**
+       * Remove preceding slash so patterns match the relative paths being provided in setFileSystemIndexFilter().
+       * Escape "." characters to match GIT Ignore syntax.
+       * Replace "*" with a pattern check for any characters other than directory separators.
+       * Wrap pattern in begin-/end-string characters or directory separators.
+       */
+      v = v.replace(/^\//g, '').replace(/\./g, '\\.').replace(/\*/g, '[^\\/\\\\]*');
+
+      return '(^|[\\\/])' + v + '($|[\\\/])';
+    });
 
     return ignoreLines.filter(noCommentsAndWhitespaceLinesFilter);
   }
